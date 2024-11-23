@@ -10,8 +10,10 @@ git clone https://github.com/gessicandrade/product-finder.git
 
 ### Instalar Dependências do Composer
 
-Execute o comando abaixo para instalar as dependências definidas no `composer.json`:
-
+Execute o comando abaixo de dentro do repositório para instalar as dependências definidas no `composer.json`:
+```
+cd product-finder
+```
 ```sh
 docker run --rm \
     -u "$(id -u):$(id -g)" \
