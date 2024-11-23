@@ -19,6 +19,12 @@ class Products extends Component
     public $filter_brands = [];
     public $filter_categories = [];
 
+    protected $queryString = [
+        'name' => ['except' => ''],
+        'filter_brands' => ['except' => []],
+        'filter_categories' => ['except' => []],
+    ];
+
     public function mount()
     {
         $this->brands = Brand::orderBy('name', 'asc')->get();
