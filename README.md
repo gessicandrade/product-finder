@@ -63,7 +63,6 @@ Execute o comando abaixo para iniciar o ambiente de desenvolvimento:
 
 Acesse o projeto no navegador através do endereço:
 
+[http://localhost:8080](http://localhost:8080/)
  - E-mail: test@example.com
  - Senha: password
-
-[http://localhost:8080](http://localhost:8080/)
