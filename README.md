@@ -68,3 +68,8 @@ Acesse o projeto no navegador através do endereço:
 [http://localhost:8080](http://localhost:8080/)
  - E-mail: test@example.com
  - Senha: password
+
+### Rodar Testes
+```
+./vendor/bin/sail artisan test
+```
