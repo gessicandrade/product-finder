@@ -25,6 +25,9 @@ class Products extends Component
         'filter_categories' => ['except' => []],
     ];
 
+    /**
+     * Mount the component.
+     */
     public function mount()
     {
         $this->brands = Brand::orderBy('name', 'asc')->get();
@@ -36,6 +39,9 @@ class Products extends Component
         $this->gotoPage(1);
     }
 
+    /**
+     * Render the component.
+     */
     public function render()
     {
         $products = Product::with(['brand', 'category'])
