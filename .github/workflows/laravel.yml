@@ -40,13 +40,13 @@ jobs:
     #     done
 
     - name: Install NPM dependencies
-      run: ./vendor/bin/sail npm install
+      run: docker compose exec -T -u root product-finder-product_finder.app-1 npm install
 
     - name: Generate application key
-      run: ./vendor/bin/sail artisan key:generate
+      run: docker compose exec -T -u root product-finder-product_finder.app-1 php artisan key:generate
 
     - name: Run migrations
       run: docker compose exec -T -u root product-finder-product_finder.app-1 php artisan migrate --force
 
     - name: Run tests
-      run: ./vendor/bin/sail artisan test
+      run: docker compose exec -T -u root product-finder-product_finder.app-1 php artisan test
