@@ -26,7 +26,7 @@ class Products extends Component
     ];
 
     /**
-     * Mount the component.
+     * Mount the component
      */
     public function mount()
     {
@@ -34,13 +34,16 @@ class Products extends Component
         $this->categories = Category::orderBy('name', 'asc')->get();
     }
 
+    /**
+     * Listen for events
+     */
     public function updating($name, $value)
     {
         $this->gotoPage(1);
     }
 
     /**
-     * Render the component.
+     * Render the component
      */
     public function render()
     {
@@ -63,5 +66,13 @@ class Products extends Component
         ->paginate(10);
 
         return view('livewire.products', compact('products'));
+    }
+
+    /**
+     * Reset filters
+     */
+    public function resetFilters()
+    {
+        $this->reset(['name', 'filter_brands', 'filter_categories']);
     }
 }

@@ -31,6 +31,7 @@
                     @endforeach
                     </div>
                 </div>
+                <button wire:click="resetFilters" class="w-full mt-6 bg-blue-500 text-white px-4 py-2 rounded">Limpar Filtro</button>
             </div>
         </div>
     </div>
