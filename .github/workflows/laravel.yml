@@ -46,7 +46,7 @@ jobs:
       run: ./vendor/bin/sail artisan key:generate
 
     - name: Run migrations
-      run: ./vendor/bin/sail artisan migrate
+      run: docker compose exec -T -u root product-finder-product_finder.app-1 php artisan migrate --force
 
     - name: Run tests
       run: ./vendor/bin/sail artisan test
