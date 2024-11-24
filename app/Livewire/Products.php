@@ -25,17 +25,26 @@ class Products extends Component
         'filter_categories' => ['except' => []],
     ];
 
+    /**
+     * Mount the component
+     */
     public function mount()
     {
         $this->brands = Brand::orderBy('name', 'asc')->get();
         $this->categories = Category::orderBy('name', 'asc')->get();
     }
 
+    /**
+     * Listen for events
+     */
     public function updating($name, $value)
     {
         $this->gotoPage(1);
     }
 
+    /**
+     * Render the component
+     */
     public function render()
     {
         $products = Product::with(['brand', 'category'])
@@ -57,5 +66,13 @@ class Products extends Component
         ->paginate(10);
 
         return view('livewire.products', compact('products'));
+    }
+
+    /**
+     * Reset filters
+     */
+    public function resetFilters()
+    {
+        $this->reset(['name', 'filter_brands', 'filter_categories']);
     }
 }
