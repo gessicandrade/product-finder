@@ -30,6 +30,12 @@ jobs:
     - name: Up Containers
       run: ./vendor/bin/sail up -d
 
+    - name: Wait for MySQL to be ready
+      run: |
+        while ! ./vendor/bin/sail mysqladmin ping --silent; do
+          sleep 1
+        done
+
     - name: Install NPM dependencies
       run: ./vendor/bin/sail npm install
 
