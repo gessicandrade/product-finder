@@ -46,7 +46,7 @@ jobs:
       run: cp .env.example .env
 
     - name: Update .env DB_HOST
-      run: sed -i 's/DB_HOST=host.docker.internal/DB_HOST=mysql/' .env
+      run: sed -i 's/DB_HOST=host.docker.internal/DB_HOST=localhost/' .env
 
     - name: Generate application key
       run: php artisan key:generate
