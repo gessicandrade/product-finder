@@ -16,7 +16,8 @@ jobs:
         php-version: '8.3'
 
     - name: Install Composer dependencies
-      run: docker run --rm \
+      run: |
+        docker run --rm \
           -u "$(id -u):$(id -g)" \
           -v "$(pwd):/var/www/html" \
           -w /var/www/html \
