@@ -57,6 +57,9 @@ jobs:
     - name: Generate application key
       run: php artisan key:generate
 
+    - name: Create SQLite database file
+      run: touch /tmp/database.sqlite
+
     - name: Run migrations
       run: php artisan migrate --database=sqlite
 
