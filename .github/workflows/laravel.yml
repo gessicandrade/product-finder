@@ -10,7 +10,9 @@ jobs:
       mysql:
         image: mysql/mysql-server:8.0
         env:
-          MYSQL_ROOT_PASSWORD: root
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_USER_PASSWORD: password
+          MYSQL_USER: sail
           MYSQL_DATABASE: product_finder
         ports:
           - 3306:3306
@@ -42,6 +44,9 @@ jobs:
 
     - name: Copy .env
       run: cp .env.example .env
+
+    - name: Update .env DB_HOST
+      run: sed -i 's/DB_HOST=host.docker.internal/DB_HOST=mysql/' .env
 
     - name: Generate application key
       run: php artisan key:generate
